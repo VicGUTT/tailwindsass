@@ -1,0 +1,17 @@
+/**
+* Mixin for controlling CSS transition properties.
+*/
+@mixin transition($property: default, $duration: 200, $timing: in-out, $delay: '') {
+    @if ($property != '') {
+        transition-property: transition-property($property);
+    }
+    @if ($duration != '') {
+        transition-duration: transition-duration($duration);
+    }
+    @if ($timing != '') {
+        transition-timing-function: transition-timing($timing);
+    }
+    @if ($delay != '') {
+        transition-delay: transition-delay($delay);
+    }
+}

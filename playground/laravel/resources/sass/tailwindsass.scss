@@ -1,0 +1,32 @@
+// Functions
+@import "functions/helpers";
+@import "functions/config";
+@import "functions/theme";
+@import "functions/color";
+@import "functions/col";
+@import "functions/font";
+@import "functions/grid-cols";
+@import "functions/leading";
+@import "functions/rounded";
+@import "functions/screen";
+@import "functions/shadow";
+@import "functions/size";
+@import "functions/space";
+@import "functions/tracking";
+@import "functions/transition";
+
+// Mixins
+@import "mixins/feature-testing";
+@import "mixins/miscellaneous";
+@import "mixins/screen-reader";
+@import "mixins/screens";
+@import "mixins/transition";
+@import "mixins/typography";
+
+// Variables
+@import "variables/config";
+
+// TailwindCSS
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";

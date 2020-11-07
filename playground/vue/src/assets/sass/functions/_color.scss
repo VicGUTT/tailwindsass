@@ -1,0 +1,68 @@
+/**
+* Use the color() function to access your Tailwind config theme's color values using dot notation.
+* It allowes you to reference a value from your theme color configuration.
+*
+* It's a shortcurt to `theme('colors.x')'`.
+*
+* As an alternative for dot notation, an unlimited parameters list may be
+* provided to access the nested values.
+*
+* @example
+*    - color('gray'); --> defaulting to the "500" shade
+*    - color(gray); --> defaulting to the "500" shade
+*    - color('gray.800');
+*    - color(gray, '800');
+*    - color('gray', 800);
+*    - color('gray', '800');
+*    - color(gray, 800);
+*/
+@function color($keys...) {
+    $colors: theme('colors');
+    $value: null;
+    $key: if(
+        length($keys) == 1,
+        '' + nth($keys, 1),
+        _better-list-join($keys)
+    );
+
+    @if str-contains($key, '.') {
+        $value: if(
+            theme('colors.' + $key),
+            theme('colors.' + $key),
+            theme('colors.' + $key + '.500')
+        );
+    } @else {
+        $value: if(
+            map-get($colors, $key),
+            map-get($colors, $key),
+            map-get($colors, '500')
+        );
+    }
+
+    @if type-of($value) == map {
+        $value: map-get($value, '500');
+    }
+
+    @if not $value {
+        @error '[TailwindSASS - color]: No value found for the provided path `#{$key}`.';
+    }
+
+    @return $value;
+}
+
+/**
+* Because something like: "join((1, 2), (4, 5, 6), '.')" won't work.
+*/
+@function _better-list-join($values) {
+    $joinned: null;
+
+    @each $value in $values {
+        @if $joinned == null {
+            $joinned: $value;
+        } @else {
+            $joinned: $joinned + '.' + $value;
+        }
+    }
+
+    @return $joinned;
+}

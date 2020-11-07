@@ -1,0 +1,13 @@
+// TailwindSASS
+@import "tailwindsass";
+
+// Styles
+body {
+    background-color: color('gray.900');
+}
+
+#app {
+    border: 1px solid color('orange.700');
+
+    @apply rounded-md;
+}

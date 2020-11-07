@@ -1,0 +1,22 @@
+/**
+* Add the font bold family and it's correct font weight to an element
+* 
+* @example scss
+*   .el {
+*     @include font-bold;
+*   }
+*   
+* @output
+*   .el {
+*       font-family: (...);
+*       font-weight: (...);
+*   }
+*/
+@mixin font-bold {
+    @if not (map-has-key(theme('fontFamily'), bold)) {
+        font-weight: theme('fontWeight.bold');
+    } @else {
+        font-family: theme('fontFamily.bold');
+        font-weight: theme('fontWeight.bold');
+    }
+}

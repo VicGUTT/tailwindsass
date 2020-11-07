@@ -1,0 +1,146 @@
+// Note (can inspire new helpers) : https://github.com/davidkpiano/sassdash
+
+/**
+* Mixin to easily get nested map values.
+*
+* @example
+*   $example-map: (
+*     foo: (
+*       baz: (
+*         qux: (
+*           quux: (
+*             garply: (
+*               waldo: "Hello world"
+*             )
+*           )
+*         )
+*       ) 
+*     ) 
+*   );
+*   
+*   // Usage : nested-map-get($example-map, foo, baz, qux, quux, garply, waldo); --> "Hello world"
+*
+* @see https://github.com/sass/sass/issues/1349#issuecomment-50817692
+*/
+@function nested-map-get($map, $keys...) {
+    @if type-of($map) != map {
+        @error '[TailwindSASS - nested-map-get]: The provided parameter `$map` is not a map. `#{type-of($map)} given.`';
+    }
+    @if not map-has-key($map, nth($keys, 1)) {
+        @error '[TailwindSASS - nested-map-get]: No key of `#{nth($keys, 1)}` found in the provided map.';
+    }
+
+    @return if(
+        length($keys) == 1,
+        map-get($map, nth($keys, 1)),
+        nested-map-get(map-get($map, nth($keys, 1)), _list-slice($keys, 2)...)
+    );
+}
+
+/**
+* Helper function for the "nested-map-get" function.
+*/
+@function _list-slice($list, $start, $end: length($list)) {
+    @if $start > length($list) {
+        @return ();
+    }
+
+    $new-list: ();
+
+    @for $i from $start through $end {
+        $new-list: append($new-list, nth($list, $i), list-separator($list));
+    }
+
+    @return $new-list;
+}
+
+/**
+* Remove all trailing and leading whitespaces from a string.
+*
+* @see https://github.com/HugoGiraudel/SassyStrings/blob/c9696b70243d790a468bd5d6bcb1e54d706eceb8/dist/_SassyStrings.scss
+*/
+@function str-trim($string) {
+    $start: 1;
+    $end: str-length($string);
+
+    @for $i from 1 through str-length($string) {
+        $first: str-slice($string, $i, $i);
+        $last: str-slice($string, -$i, -$i);
+
+        @if $first == ' ' and $i + 1 == $start + 1 {
+            $start: $i + 1;
+        }
+
+        @if $last == ' ' and str-length($string) - $i == $end - 1 {
+            $end: str-length($string) - $i;
+        }
+    }
+
+    @return str-slice($string, $start, $end);
+}
+
+/**
+* Divide a string into a list/array of substrings.
+* The division is done by searching for a pattern, a separator.
+*
+* @see https://github.com/HugoGiraudel/SassyStrings/blob/c9696b70243d790a468bd5d6bcb1e54d706eceb8/stylesheets/private/_str-explode.scss
+*/
+@function str-split($string, $delimiter: '') {
+    $result: ();
+    $length: str-length($string);
+
+    @if str-length($delimiter) == 0 {
+        @for $i from 1 through $length {
+            $result: append($result, str-slice($string, $i, $i));
+        }
+
+        @return $result;
+    }
+
+    $running: true;
+    $remaining: $string;
+
+    @while $running {
+        $index: str-index($remaining, $delimiter);
+
+        @if $index {
+            $slice: str-slice($remaining, 1, $index - 1);
+            $result: append($result, $slice);
+            $remaining: str-slice($remaining, $index + str-length($delimiter));
+        } @else {
+            $running: false;
+        }
+    }
+
+    @return append($result, $remaining);
+}
+
+/**
+* Determine if a given string contains a given substring.
+*
+* @param  string $haystack
+* @param  string $needle
+* @return bool
+*/
+@function str-contains($haystack, $needle) {
+    @return str-index($haystack, $needle) != null;
+}
+
+/**
+* Replace `$search` with `$replace` in `$string`
+* 
+* @author Hugo Giraudel
+* @param string $string - Initial string
+* @param string $search - Substring to replace
+* @param string $replace ('') - New value
+* @return string - Updated string
+*/
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+
+    @if $index {
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}

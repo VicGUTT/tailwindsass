@@ -1,0 +1,9 @@
+/**
+* Use the config() function to access your Tailwind config's values using dot notation.
+* It allowes you to reference a value from your entire configuration.
+*/
+@function config($path) {
+    $parts: str-split($path, '.');
+
+    @return nested-map-get($config, $parts...);
+}

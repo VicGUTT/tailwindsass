@@ -1,0 +1,8 @@
+/**
+* Function for controlling the border radius of an element.
+*
+* @docs https://tailwindcss.com/docs/border-radius
+*/
+@function rounded($key) {
+    @return theme('borderRadius.' + $key);
+}

@@ -1,0 +1,69 @@
+/**
+* Feature test CSS Custom Properties.
+* Note: Browser needs to support CSS Feature Queries.
+*/
+@mixin check-var () {
+    @supports (color: var(--primary)) {
+        @content;
+    }
+}
+
+/**
+* Feature test CSS "object-fit".
+* Note: Browser needs to support CSS Feature Queries.
+*/
+@mixin check-object-fit () {
+    @supports (object-fit: cover) {
+        @content;
+    }
+}
+
+/**
+* Feature test CSS Grid.
+* Note: Browser needs to support CSS Feature Queries.
+*/
+@mixin check-grid () {
+    @supports (display: grid) and (gap: 1em) {
+        @content;
+    }
+}
+
+/**
+* Feature test CSS Flexbox.
+* Note: Browser needs to support CSS Feature Queries.
+*/
+@mixin check-flexbox () {
+    @supports (display: flex) and (flex-wrap: wrap) {
+        @content;
+    }
+}
+
+/**
+* Modern enough browsers.
+* Note: Browser needs to support CSS Feature Queries.
+*/
+@mixin acceptable-browser () {
+    @supports (flex-wrap: wrap) and (gap: 1em) and (color: var(--primary)) {
+        @content;
+    }
+}
+
+/**
+* Feature test "Evergreen" browsers by seeing if the browser supports the latest CSS features.
+* Note: Browser needs to support CSS Feature Queries.
+*/
+@mixin modern-browser () {
+    @supports (font-size: min(1em, 2em)) and (font-size: max(1em, 2em)) and (font-size: clamp(1em, 2em, 3em)) {
+        @content;
+    }
+}
+
+/**
+* Feature test "Cutting egde" browsers by seeing if the browser supports the latest and greatest / newly out CSS features.
+* Note: Browser needs to support CSS Feature Queries.
+*/
+@mixin edge-browser () {
+    @supports (contain: content) and (content-visibility: hidden) and (contain-intrinsic-size: 1000px)/*  and (aspect-ratio: 1 / 1) */ {
+        @content;
+    }
+}

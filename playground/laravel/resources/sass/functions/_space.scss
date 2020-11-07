@@ -1,0 +1,7 @@
+/**
+* Reference a value from the global spacing and sizing scale configuration of your project.
+* It referes to your theme's margin value to have the "auto", positive and negative spacing values.
+*/
+@function space($key) {
+    @return theme('margin.' + $key);
+}

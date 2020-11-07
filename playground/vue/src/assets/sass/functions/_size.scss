@@ -1,0 +1,9 @@
+/**
+* Function for setting the "size" of an element.
+* It referes to your theme's width and maxWidth values.
+*/
+@function size($key) {
+    $sizes: map-merge(theme('width'), theme('maxWidth'));
+
+    @return map-get($sizes, ('' + $key));
+}

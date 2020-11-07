@@ -1,0 +1,8 @@
+/**
+* Function for specifying the columns in a grid layout.
+*
+* @docs https://tailwindcss.com/docs/grid-template-columns
+*/
+@function grid-cols($key) {
+    @return unquote(theme('gridTemplateColumns.' + $key));
+}

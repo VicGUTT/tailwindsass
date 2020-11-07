@@ -1,0 +1,41 @@
+/**
+* Clearing floats hack.
+*/
+@mixin clearfix() {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+/**
+* Truncate overflowing text with an ellipsis (…) if needed
+*/
+@mixin truncate() {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/**
+* For ARIA and usability reasons : prevent off screen / non visible elements from being focusable and from being in the tab order
+* An example of the problem could be found on Youtube by searching for : A11ycasts #02
+* Might also need a 'tabindex="-1"' on the HTML element for a programmatic focus (https://stackoverflow.com/questions/32911355/whats-the-tabindex-1-in-bootstrap-for)
+*/
+@mixin loose-focus($visibility: false) {
+    @if $visibility {
+        visibility: hidden;
+    }
+
+    pointer-events: none;
+    user-select: none;
+}
+@mixin gain-focus($visibility: true) {
+    @if $visibility {
+        visibility: visible;
+    }
+
+    pointer-events: initial;
+    user-select: initial;
+}

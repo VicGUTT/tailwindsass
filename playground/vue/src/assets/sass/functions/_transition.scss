@@ -1,0 +1,57 @@
+/**
+* Function for controlling which CSS properties transition.
+*
+* @docs https://tailwindcss.com/docs/transition-property
+*/
+@function transition-property($key) {
+    @return unquote(theme('transitionProperty.' + $key));
+}
+
+/**
+* Function for controlling the duration of CSS transitions.
+*
+* @docs https://tailwindcss.com/docs/transition-duration
+*/
+@function transition-duration($key) {
+    @return theme('transitionDuration.' + $key);
+}
+
+/**
+* Function for controlling the easing of CSS transitions.
+*
+* @docs https://tailwindcss.com/docs/transition-timing-function
+*/
+@function transition-timing($key) {
+    @return unquote(theme('transitionTimingFunction.' + $key));
+}
+
+/**
+* Function for controlling the delay of CSS transitions.
+*
+* @docs https://tailwindcss.com/docs/transition-delay
+*/
+@function transition-delay($key) {
+    @return theme('transitionDelay.' + $key);
+}
+
+/**
+* Function for controlling CSS transitions.
+*/
+@function transition($property: default, $duration: 200, $timing: in-out, $delay: '') {
+    $value: '';
+
+    @if ($property != '') {
+        $value: '#{$value} #{transition-property($property)}';
+    }
+    @if ($duration != '') {
+        $value: '#{$value} #{transition-duration($duration)}';
+    }
+    @if ($timing != '') {
+        $value: '#{$value} #{transition-timing($timing)}';
+    }
+    @if ($delay != '') {
+        $value: '#{$value} #{transition-delay($delay)}';
+    }
+    
+    @return str-trim(unquote($value));
+}
