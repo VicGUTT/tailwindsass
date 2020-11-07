@@ -1,0 +1,121 @@
+@include describe('Functions:font') {
+
+    @include it('Test:font-family') {
+        @include assert-equal(font-family('sans'), theme('fontFamily.sans'));
+        @include assert-equal(font-family('serif'), theme('fontFamily.serif'));
+        @include assert-equal(font-family('mono'), theme('fontFamily.mono'));
+
+        @include assert-equal(
+            font-family('sans'),
+            (system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji")
+        );
+        @include assert-equal(font-family('serif'), (Georgia, Cambria, "Times New Roman", Times, serif));
+        @include assert-equal(font-family('mono'), (Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace));
+    }
+
+    @include it('Test:font-weight') {
+        @include assert-equal(font-weight('hairline'), theme('fontWeight.hairline'));
+        @include assert-equal(font-weight('thin'), theme('fontWeight.thin'));
+        @include assert-equal(font-weight('light'), theme('fontWeight.light'));
+        @include assert-equal(font-weight('normal'), theme('fontWeight.normal'));
+        @include assert-equal(font-weight('medium'), theme('fontWeight.medium'));
+        @include assert-equal(font-weight('semibold'), theme('fontWeight.semibold'));
+        @include assert-equal(font-weight('bold'), theme('fontWeight.bold'));
+        @include assert-equal(font-weight('extrabold'), theme('fontWeight.extrabold'));
+        @include assert-equal(font-weight('black'), theme('fontWeight.black'));
+
+        @include assert-equal(font-weight('hairline'), 100);
+        @include assert-equal(font-weight('thin'), 200);
+        @include assert-equal(font-weight('light'), 300);
+        @include assert-equal(font-weight('normal'), 400);
+        @include assert-equal(font-weight('medium'), 500);
+        @include assert-equal(font-weight('semibold'), 600);
+        @include assert-equal(font-weight('bold'), 700);
+        @include assert-equal(font-weight('extrabold'), 800);
+        @include assert-equal(font-weight('black'), 900);
+    }
+
+    @include it('Test:font-size') {
+        @include assert-equal(font-size('xs'), theme('fontSize.xs'));
+        @include assert-equal(font-size('sm'), theme('fontSize.sm'));
+        @include assert-equal(font-size('base'), theme('fontSize.base'));
+        @include assert-equal(font-size('lg'), theme('fontSize.lg'));
+        @include assert-equal(font-size('xl'), theme('fontSize.xl'));
+        @include assert-equal(font-size('2xl'), theme('fontSize.2xl'));
+        @include assert-equal(font-size('3xl'), theme('fontSize.3xl'));
+        @include assert-equal(font-size('4xl'), theme('fontSize.4xl'));
+        @include assert-equal(font-size('5xl'), theme('fontSize.5xl'));
+        @include assert-equal(font-size('6xl'), theme('fontSize.6xl'));
+
+        @include assert-equal(font-size('xs'), 0.75rem);
+        @include assert-equal(font-size('sm'), 0.875rem);
+        @include assert-equal(font-size('base'), 1rem);
+        @include assert-equal(font-size('lg'), 1.125rem);
+        @include assert-equal(font-size('xl'), 1.25rem);
+        @include assert-equal(font-size('2xl'), 1.5rem);
+        @include assert-equal(font-size('3xl'), 1.875rem);
+        @include assert-equal(font-size('4xl'), 2.25rem);
+        @include assert-equal(font-size('5xl'), 3rem);
+        @include assert-equal(font-size('6xl'), 4rem);
+    }
+
+    @include it('Test:font') {
+        // fontFamily
+        @include assert-equal(font('sans'), font-family('sans'));
+        @include assert-equal(font('serif'), font-family('serif'));
+        @include assert-equal(font('mono'), font-family('mono'));
+
+        // fontWeight
+        @include assert-equal(font('hairline'), font-weight('hairline'));
+        @include assert-equal(font('thin'), font-weight('thin'));
+        @include assert-equal(font('light'), font-weight('light'));
+        @include assert-equal(font('normal'), font-weight('normal'));
+        @include assert-equal(font('medium'), font-weight('medium'));
+        @include assert-equal(font('semibold'), font-weight('semibold'));
+        @include assert-equal(font('bold'), font-weight('bold'));
+        @include assert-equal(font('extrabold'), font-weight('extrabold'));
+        @include assert-equal(font('black'), font-weight('black'));
+
+        // fontSize
+        @include assert-equal(font('xs'), font-size('xs'));
+        @include assert-equal(font('sm'), font-size('sm'));
+        @include assert-equal(font('base'), font-size('base'));
+        @include assert-equal(font('lg'), font-size('lg'));
+        @include assert-equal(font('xl'), font-size('xl'));
+        @include assert-equal(font('2xl'), font-size('2xl'));
+        @include assert-equal(font('3xl'), font-size('3xl'));
+        @include assert-equal(font('4xl'), font-size('4xl'));
+        @include assert-equal(font('5xl'), font-size('5xl'));
+        @include assert-equal(font('6xl'), font-size('6xl'));
+    }
+
+    @include it('Test:font - without quotes') {
+        // fontFamily
+        @include assert-equal(font(sans), font-family(sans));
+        @include assert-equal(font(serif), font-family(serif));
+        @include assert-equal(font(mono), font-family(mono));
+
+        // fontWeight
+        @include assert-equal(font(hairline), font-weight(hairline));
+        @include assert-equal(font(thin), font-weight(thin));
+        @include assert-equal(font(light), font-weight(light));
+        @include assert-equal(font(normal), font-weight(normal));
+        @include assert-equal(font(medium), font-weight(medium));
+        @include assert-equal(font(semibold), font-weight(semibold));
+        @include assert-equal(font(bold), font-weight(bold));
+        @include assert-equal(font(extrabold), font-weight(extrabold));
+        @include assert-equal(font(black), font-weight(black));
+
+        // fontSize
+        @include assert-equal(font(xs), font-size(xs));
+        @include assert-equal(font(sm), font-size(sm));
+        @include assert-equal(font(base), font-size(base));
+        @include assert-equal(font(lg), font-size(lg));
+        @include assert-equal(font(xl), font-size(xl));
+        @include assert-equal(font(2xl), font-size(2xl));
+        @include assert-equal(font(3xl), font-size(3xl));
+        @include assert-equal(font(4xl), font-size(4xl));
+        @include assert-equal(font(5xl), font-size(5xl));
+        @include assert-equal(font(6xl), font-size(6xl));
+    }
+}

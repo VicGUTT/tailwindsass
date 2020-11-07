@@ -1,0 +1,148 @@
+@include describe('Functions:transition') {
+
+    @include it('Test:transition-property') {
+        @include assert-equal(transition-property('none'), theme('transitionProperty.none'));
+        @include assert-equal(transition-property('all'), theme('transitionProperty.all'));
+        @include assert-equal(transition-property('default'), theme('transitionProperty.default'));
+        @include assert-equal(transition-property('colors'), theme('transitionProperty.colors'));
+        @include assert-equal(transition-property('opacity'), theme('transitionProperty.opacity'));
+        @include assert-equal(transition-property('shadow'), theme('transitionProperty.shadow'));
+        @include assert-equal(transition-property('transform'), theme('transitionProperty.transform'));
+
+        @include assert-equal(transition-property('none'), none);
+        @include assert-equal(transition-property('all'), all);
+        @include assert-equal(transition-property('default'), 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform');
+        @include assert-equal(transition-property('colors'), 'background-color, border-color, color, fill, stroke');
+        @include assert-equal(transition-property('opacity'), opacity);
+        @include assert-equal(transition-property('shadow'), box-shadow);
+        @include assert-equal(transition-property('transform'), transform);
+    }
+
+    @include it('Test:transition-duration') {
+        @include assert-equal(transition-duration('75'), theme('transitionDuration.75'));
+        @include assert-equal(transition-duration('100'), theme('transitionDuration.100'));
+        @include assert-equal(transition-duration('150'), theme('transitionDuration.150'));
+        @include assert-equal(transition-duration('200'), theme('transitionDuration.200'));
+        @include assert-equal(transition-duration('300'), theme('transitionDuration.300'));
+        @include assert-equal(transition-duration('500'), theme('transitionDuration.500'));
+        @include assert-equal(transition-duration('700'), theme('transitionDuration.700'));
+        @include assert-equal(transition-duration('1000'), theme('transitionDuration.1000'));
+
+        @include assert-equal(transition-duration('75'), 75ms);
+        @include assert-equal(transition-duration('100'), 100ms);
+        @include assert-equal(transition-duration('150'), 150ms);
+        @include assert-equal(transition-duration('200'), 200ms);
+        @include assert-equal(transition-duration('300'), 300ms);
+        @include assert-equal(transition-duration('500'), 500ms);
+        @include assert-equal(transition-duration('700'), 700ms);
+        @include assert-equal(transition-duration('1000'), 1000ms);
+    }
+
+    @include it('Test:transition-timing') {
+        @include assert-equal(transition-timing('linear'), theme('transitionTimingFunction.linear'));
+        @include assert-equal(transition-timing('in'), theme('transitionTimingFunction.in'));
+        @include assert-equal(transition-timing('out'), theme('transitionTimingFunction.out'));
+        @include assert-equal(transition-timing('in-out'), theme('transitionTimingFunction.in-out'));
+
+        @include assert-equal(transition-timing('linear'), linear);
+        @include assert-equal(transition-timing('in'), 'cubic-bezier(0.4, 0, 1, 1)');
+        @include assert-equal(transition-timing('out'), 'cubic-bezier(0, 0, 0.2, 1)');
+        @include assert-equal(transition-timing('in-out'), 'cubic-bezier(0.4, 0, 0.2, 1)');
+    }
+
+    @include it('Test:transition-delay') {
+        @include assert-equal(transition-delay('75'), theme('transitionDelay.75'));
+        @include assert-equal(transition-delay('100'), theme('transitionDelay.100'));
+        @include assert-equal(transition-delay('150'), theme('transitionDelay.150'));
+        @include assert-equal(transition-delay('200'), theme('transitionDelay.200'));
+        @include assert-equal(transition-delay('300'), theme('transitionDelay.300'));
+        @include assert-equal(transition-delay('500'), theme('transitionDelay.500'));
+        @include assert-equal(transition-delay('700'), theme('transitionDelay.700'));
+        @include assert-equal(transition-delay('1000'), theme('transitionDelay.1000'));
+
+        @include assert-equal(transition-delay('75'), 75ms);
+        @include assert-equal(transition-delay('100'), 100ms);
+        @include assert-equal(transition-delay('150'), 150ms);
+        @include assert-equal(transition-delay('200'), 200ms);
+        @include assert-equal(transition-delay('300'), 300ms);
+        @include assert-equal(transition-delay('500'), 500ms);
+        @include assert-equal(transition-delay('700'), 700ms);
+        @include assert-equal(transition-delay('1000'), 1000ms);
+    }
+
+    @include it('Test:transition') {
+        @include assert-equal(
+            transition(),
+            unquote("#{transition-property('default')} #{transition-duration('200')} #{transition-timing('in-out')}")
+        );
+        @include assert-equal(
+            transition('colors', '300', 'linear', '1000'),
+            unquote("#{transition-property('colors')} #{transition-duration('300')} #{transition-timing('linear')} #{transition-delay('1000')}")
+        );
+        @include assert-equal(
+            transition($duration: '150', $timing: 'in', $delay: '700'),
+            unquote("#{transition-property('default')} #{transition-duration('150')} #{transition-timing('in')} #{transition-delay('700')}")
+        );
+
+        @include assert-equal(
+            transition('colors'),
+            unquote('background-color, border-color, color, fill, stroke 200ms cubic-bezier(0.4, 0, 0.2, 1)')
+        );
+    }
+
+    @include it('Test:transition - without quotes') {
+        // transitionProperty
+        @include assert-equal(transition-property(none), none);
+        @include assert-equal(transition-property(all), all);
+        @include assert-equal(transition-property(default), 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform');
+        @include assert-equal(transition-property(colors), 'background-color, border-color, color, fill, stroke');
+        @include assert-equal(transition-property(opacity), opacity);
+        @include assert-equal(transition-property(shadow), box-shadow);
+        @include assert-equal(transition-property(transform), transform);
+        
+        // transitionDuration
+        @include assert-equal(transition-duration(75), 75ms);
+        @include assert-equal(transition-duration(100), 100ms);
+        @include assert-equal(transition-duration(150), 150ms);
+        @include assert-equal(transition-duration(200), 200ms);
+        @include assert-equal(transition-duration(300), 300ms);
+        @include assert-equal(transition-duration(500), 500ms);
+        @include assert-equal(transition-duration(700), 700ms);
+        @include assert-equal(transition-duration(1000), 1000ms);
+
+        // transitionTimingFunction
+        @include assert-equal(transition-timing(linear), linear);
+        @include assert-equal(transition-timing(in), 'cubic-bezier(0.4, 0, 1, 1)');
+        @include assert-equal(transition-timing(out), 'cubic-bezier(0, 0, 0.2, 1)');
+        @include assert-equal(transition-timing(in-out), 'cubic-bezier(0.4, 0, 0.2, 1)');
+
+        // transitionDelay
+        @include assert-equal(transition-delay(75), 75ms);
+        @include assert-equal(transition-delay(100), 100ms);
+        @include assert-equal(transition-delay(150), 150ms);
+        @include assert-equal(transition-delay(200), 200ms);
+        @include assert-equal(transition-delay(300), 300ms);
+        @include assert-equal(transition-delay(500), 500ms);
+        @include assert-equal(transition-delay(700), 700ms);
+        @include assert-equal(transition-delay(1000), 1000ms);
+
+        // transition
+        @include assert-equal(
+            transition(),
+            unquote('#{transition-property(default)} #{transition-duration(200)} #{transition-timing(in-out)}')
+        );
+        @include assert-equal(
+            transition(colors, 300, linear, 1000),
+            unquote('#{transition-property(colors)} #{transition-duration(300)} #{transition-timing(linear)} #{transition-delay('1000')}')
+        );
+        @include assert-equal(
+            transition($duration: 150, $timing: in, $delay: 700),
+            unquote('#{transition-property(default)} #{transition-duration(150)} #{transition-timing(in)} #{transition-delay('700')}')
+        );
+
+        @include assert-equal(
+            transition(colors),
+            unquote('background-color, border-color, color, fill, stroke 200ms cubic-bezier(0.4, 0, 0.2, 1)')
+        );
+    }
+}

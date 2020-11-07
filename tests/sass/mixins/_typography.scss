@@ -1,0 +1,31 @@
+@include describe('Mixins:typography') {
+
+    @include it('Test:font-bold') {
+        @include assert {
+            @include output {
+                @include font-bold;
+            }
+
+            @include expect {
+                font-weight: 700;
+            }
+        }
+
+        // @include assert {
+        //     @include output {
+        //         $config: (
+        //             "fontFamily": (
+        //                 "bold": (Menlo-Bold, Monaco-Bold)
+        //             ),
+        //         );
+            
+        //         @include font-bold;
+        //     }
+
+        //     @include expect {
+        //         font-family: Menlo-Bold, Monaco-Bold;
+        //         font-weight: 700;
+        //     }
+        // }
+    }
+}

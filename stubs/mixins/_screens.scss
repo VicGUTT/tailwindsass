@@ -1,0 +1,62 @@
+/**
+* Responsive breakpoint for very small screen sizes.
+*/
+@mixin screen-xs () {
+    @media (min-width: screen(xs)) {
+        @content;
+    }
+}
+
+/**
+* Responsive breakpoint for small screen sizes.
+*/
+@mixin screen-sm () {
+    @media (min-width: screen(sm)) {
+        @content;
+    }
+}
+
+/**
+* Responsive breakpoint for medium screen sizes.
+*/
+@mixin screen-md () {
+    @media (min-width: screen(md)) {
+        @content;
+    }
+}
+
+/**
+* Responsive breakpoint for large screen sizes.
+*/
+@mixin screen-lg () {
+    @media (min-width: screen(lg)) {
+        @content;
+    }
+}
+
+/**
+* Responsive breakpoint for pretty large screen sizes.
+*/
+@mixin screen-xl () {
+    @media (min-width: screen(xl)) {
+        @content;
+    }
+}
+
+/**
+* Responsive breakpoint for large screen sizes.
+*/
+@mixin screen-2xl () {
+    @media (min-width: screen(2xl)) {
+        @content;
+    }
+}
+
+/**
+* Responsive breakpoint for very large screen sizes.
+*/
+@mixin screen-3xl () {
+    @media (min-width: screen(3xl)) {
+        @content;
+    }
+}

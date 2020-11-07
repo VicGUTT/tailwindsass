@@ -1,0 +1,4 @@
+/.vic
+*.vic
+/node_modules
+/tests/js/output

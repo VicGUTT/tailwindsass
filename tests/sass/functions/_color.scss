@@ -1,0 +1,25 @@
+@include describe('Functions:color') {
+
+    @include it('Test:color') {
+        @include assert-equal(color('gray.100'), theme('colors.gray.100'));
+
+        @include assert-equal(color('gray.100'), #f7fafc);
+        @include assert-equal(color('gray', '100'), #f7fafc);
+        @include assert-equal(color(gray, 100), #f7fafc);
+        @include assert-equal(color('gray', 100), #f7fafc);
+        @include assert-equal(color(gray, '100'), #f7fafc);
+
+        // // Expected errors to be thrown : ("[TailwindSASS - nested-map-get]: No key of `1000` found in the provided map."
+
+        // @include assert-equal(color('gray.1000'), null);
+        // @include assert-equal(color('gray', '1000'), null);
+        // @include assert-equal(color(gray, 1000), null);
+        // @include assert-equal(color('gray', 1000), null);
+        // @include assert-equal(color(gray, '1000'), null);
+
+        // // Expected errors to be thrown : ("[TailwindSASS - color]: No value found for the provided path `yolo`.")
+
+        // @include assert-equal(color('yolo'), null);
+        // // @include assert-equal(color('yolo.100'), null);
+    }
+}

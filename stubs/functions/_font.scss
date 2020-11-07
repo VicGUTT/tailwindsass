@@ -1,0 +1,50 @@
+/**
+* Function for controlling the font family of an element.
+*
+* @docs https://tailwindcss.com/docs/font-family
+*/
+@function font-family($key) {
+    @return if(
+        theme('fontFamily.' + $key),
+        join((), theme('fontFamily.' + $key), comma),
+        null
+    );
+}
+
+/**
+* Function for controlling the font weight of an element.
+*
+* @docs https://tailwindcss.com/docs/font-weight
+*/
+@function font-weight($key) {
+    @return theme('fontWeight.' + $key);
+}
+
+/**
+* Function for controlling the font size of an element.
+*
+* @docs https://tailwindcss.com/docs/font-size
+*/
+@function font-size($key) {
+    @return theme('fontSize.' + $key);
+}
+
+/**
+* Function for controlling the font family, size or weight of an element.
+* It relies on the fact that the Tailwind conf won't have same keys for
+* `fontFamily`, `fontWeight`, or `fontSize`.
+*
+* If your config does have similar key names for those, please
+* user the dedicated font functions instead.
+*/
+@function font($key) {
+    @if (map-has-key(theme('fontFamily'), $key)) {
+        @return font-family($key);
+    }
+
+    @if (map-has-key(theme('fontWeight'), ('' + $key))) {
+        @return font-weight(('' + $key));
+    }
+
+    @return font-size($key);
+}

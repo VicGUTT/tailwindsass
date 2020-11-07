@@ -1,0 +1,8 @@
+/**
+* Function for controlling the box shadow of an element.
+*
+* @docs https://tailwindcss.com/docs/box-shadow
+*/
+@function shadow($key) {
+    @return unquote(theme('boxShadow.' + $key));
+}

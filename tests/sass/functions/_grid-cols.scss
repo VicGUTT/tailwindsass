@@ -1,0 +1,59 @@
+@include describe('Functions:grid-cols') {
+
+    @include it('Test:grid-cols') {
+        @include assert-equal(grid-cols('1'), theme('gridTemplateColumns.1'));
+        @include assert-equal(grid-cols('1'), 'repeat(1, minmax(0, 1fr))');
+
+        @include assert-equal(grid-cols('2'), theme('gridTemplateColumns.2'));
+        @include assert-equal(grid-cols('2'), 'repeat(2, minmax(0, 1fr))');
+
+        @include assert-equal(grid-cols('3'), theme('gridTemplateColumns.3'));
+        @include assert-equal(grid-cols('3'), 'repeat(3, minmax(0, 1fr))');
+
+        @include assert-equal(grid-cols('4'), theme('gridTemplateColumns.4'));
+        @include assert-equal(grid-cols('4'), 'repeat(4, minmax(0, 1fr))');
+
+        @include assert-equal(grid-cols('5'), theme('gridTemplateColumns.5'));
+        @include assert-equal(grid-cols('5'), 'repeat(5, minmax(0, 1fr))');
+
+        @include assert-equal(grid-cols('6'), theme('gridTemplateColumns.6'));
+        @include assert-equal(grid-cols('6'), 'repeat(6, minmax(0, 1fr))');
+
+        @include assert-equal(grid-cols('7'), theme('gridTemplateColumns.7'));
+        @include assert-equal(grid-cols('7'), 'repeat(7, minmax(0, 1fr))');
+
+        @include assert-equal(grid-cols('8'), theme('gridTemplateColumns.8'));
+        @include assert-equal(grid-cols('8'), 'repeat(8, minmax(0, 1fr))');
+
+        @include assert-equal(grid-cols('9'), theme('gridTemplateColumns.9'));
+        @include assert-equal(grid-cols('9'), 'repeat(9, minmax(0, 1fr))');
+
+        @include assert-equal(grid-cols('10'), theme('gridTemplateColumns.10'));
+        @include assert-equal(grid-cols('10'), 'repeat(10, minmax(0, 1fr))');
+
+        @include assert-equal(grid-cols('11'), theme('gridTemplateColumns.11'));
+        @include assert-equal(grid-cols('11'), 'repeat(11, minmax(0, 1fr))');
+
+        @include assert-equal(grid-cols('12'), theme('gridTemplateColumns.12'));
+        @include assert-equal(grid-cols('12'), 'repeat(12, minmax(0, 1fr))');
+
+        @include assert-equal(grid-cols('none'), theme('gridTemplateColumns.none'));
+        @include assert-equal(grid-cols('none'), none);
+    }
+
+    @include it('Test:grid-cols - without quotes') {
+        @include assert-equal(grid-cols(1), grid-cols('1'));
+        @include assert-equal(grid-cols(2), grid-cols('2'));
+        @include assert-equal(grid-cols(3), grid-cols('3'));
+        @include assert-equal(grid-cols(4), grid-cols('4'));
+        @include assert-equal(grid-cols(5), grid-cols('5'));
+        @include assert-equal(grid-cols(6), grid-cols('6'));
+        @include assert-equal(grid-cols(7), grid-cols('7'));
+        @include assert-equal(grid-cols(8), grid-cols('8'));
+        @include assert-equal(grid-cols(9), grid-cols('9'));
+        @include assert-equal(grid-cols(10), grid-cols('10'));
+        @include assert-equal(grid-cols(11), grid-cols('11'));
+        @include assert-equal(grid-cols(12), grid-cols('12'));
+        @include assert-equal(grid-cols(none), grid-cols('none'));
+    }
+}

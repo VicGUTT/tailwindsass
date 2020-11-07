@@ -1,0 +1,8 @@
+/**
+* Function for controlling the leading (line height) of an element.
+*
+* @docs https://tailwindcss.com/docs/line-height
+*/
+@function leading($key) {
+    @return theme('lineHeight.' + $key);
+}

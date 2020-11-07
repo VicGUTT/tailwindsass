@@ -1,0 +1,23 @@
+@include describe('Functions:theme') {
+
+    @include it('Test:theme') {
+        @include assert-equal(config('theme.screens.xs'), config('theme.screens.xs'));
+        @include assert-equal(theme('screens.xs'), 320px);
+
+        @include assert-equal(config('theme.colors.gray.100'), config('theme.colors.gray.100'));
+        @include assert-equal(theme('colors.gray.100'), #f7fafc);
+
+        @include assert-equal(config('theme.backgroundImage.gradient-to-t'), config('theme.backgroundImage.gradient-to-t'));
+        @include assert-equal(theme('backgroundImage.gradient-to-t'), 'linear-gradient(to top, var(--gradient-color-stops))');
+
+        @include assert-equal(config('theme.fontFamily.serif'), config('theme.fontFamily.serif'));
+        @include assert-equal(theme('fontFamily.serif'), (Georgia, Cambria, "Times New Roman", Times, serif));
+
+        @include assert-equal(config('theme.gridColumn.span-1'), config('theme.gridColumn.span-1'));
+        @include assert-equal(theme('gridColumn.span-1'), span 1 / span 1);
+
+        // // Expected errors to be thrown :
+
+        // @include assert-equal(theme('none-existing-key.xs'), 320px); // Error --> "[TailwindSASS - nested-map-get]: No key of `none-existing-key` found in the provided map."
+    }
+}

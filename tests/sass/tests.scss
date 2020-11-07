@@ -1,0 +1,70 @@
+/* Setup
+------------------------------------------------*/
+
+@import "true";
+
+// Variables
+@import "variables/config";
+
+
+$true-terminal-output: true;
+
+@include report();
+
+
+/* Targets
+------------------------------------------------*/
+
+// Functions
+@import "../../stubs/functions/helpers";
+@import "../../stubs/functions/config";
+@import "../../stubs/functions/theme";
+@import "../../stubs/functions/color";
+@import "../../stubs/functions/col";
+@import "../../stubs/functions/font";
+@import "../../stubs/functions/grid-cols";
+@import "../../stubs/functions/leading";
+@import "../../stubs/functions/rounded";
+@import "../../stubs/functions/screen";
+@import "../../stubs/functions/shadow";
+@import "../../stubs/functions/size";
+@import "../../stubs/functions/space";
+@import "../../stubs/functions/tracking";
+@import "../../stubs/functions/transition";
+
+// Mixins
+@import "../../stubs/mixins/feature-testing";
+@import "../../stubs/mixins/miscellaneous";
+@import "../../stubs/mixins/screen-reader";
+@import "../../stubs/mixins/screens";
+@import "../../stubs/mixins/transition";
+@import "../../stubs/mixins/typography";
+
+
+/* Tests
+------------------------------------------------*/
+
+// Functions
+@import "functions/helpers";
+@import "functions/config";
+@import "functions/theme";
+@import "functions/color";
+@import "functions/col";
+@import "functions/font";
+@import "functions/grid-cols";
+@import "functions/leading";
+@import "functions/rounded";
+@import "functions/screen";
+@import "functions/shadow";
+@import "functions/size";
+@import "functions/space";
+@import "functions/tracking";
+@import "functions/transition";
+
+// Mixins
+@import "mixins/feature-testing";
+@import "mixins/miscellaneous";
+@import "mixins/screen-reader";
+@import "mixins/screens";
+@import "mixins/transition";
+@import "mixins/typography";

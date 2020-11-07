@@ -1,0 +1,11 @@
+/**
+* Use the theme() function to access your Tailwind config's theme values using dot notation.
+* It allowes you to reference a value from your theme configuration.
+*
+* It's a shortcurt to `config('theme.x')'`.
+*
+* Works similarly to: https://tailwindcss.com/docs/functions-and-directives#theme
+*/
+@function theme($path) {
+    @return config('theme.' + $path);
+}

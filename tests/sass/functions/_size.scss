@@ -1,0 +1,278 @@
+@include describe('Functions:size') {
+
+    @include it('Test:size') {
+        // width
+        @include assert-equal(size('0'), theme('width.0'));
+        @include assert-equal(size('0'), 0);
+
+        @include assert-equal(size('1'), theme('width.1'));
+        @include assert-equal(size('1'), 0.25rem);
+
+        @include assert-equal(size('2'), theme('width.2'));
+        @include assert-equal(size('2'), 0.5rem);
+
+        @include assert-equal(size('3'), theme('width.3'));
+        @include assert-equal(size('3'), 0.75rem);
+
+        @include assert-equal(size('4'), theme('width.4'));
+        @include assert-equal(size('4'), 1rem);
+
+        @include assert-equal(size('5'), theme('width.5'));
+        @include assert-equal(size('5'), 1.25rem);
+
+        @include assert-equal(size('6'), theme('width.6'));
+        @include assert-equal(size('6'), 1.5rem);
+
+        @include assert-equal(size('8'), theme('width.8'));
+        @include assert-equal(size('8'), 2rem);
+
+        @include assert-equal(size('10'), theme('width.10'));
+        @include assert-equal(size('10'), 2.5rem);
+
+        @include assert-equal(size('12'), theme('width.12'));
+        @include assert-equal(size('12'), 3rem);
+
+        @include assert-equal(size('16'), theme('width.16'));
+        @include assert-equal(size('16'), 4rem);
+
+        @include assert-equal(size('20'), theme('width.20'));
+        @include assert-equal(size('20'), 5rem);
+
+        @include assert-equal(size('24'), theme('width.24'));
+        @include assert-equal(size('24'), 6rem);
+
+        @include assert-equal(size('32'), theme('width.32'));
+        @include assert-equal(size('32'), 8rem);
+
+        @include assert-equal(size('40'), theme('width.40'));
+        @include assert-equal(size('40'), 10rem);
+
+        @include assert-equal(size('48'), theme('width.48'));
+        @include assert-equal(size('48'), 12rem);
+
+        @include assert-equal(size('56'), theme('width.56'));
+        @include assert-equal(size('56'), 14rem);
+
+        @include assert-equal(size('64'), theme('width.64'));
+        @include assert-equal(size('64'), 16rem);
+
+        @include assert-equal(size('auto'), theme('width.auto'));
+        @include assert-equal(size('auto'), auto);
+
+        @include assert-equal(size('px'), theme('width.px'));
+        @include assert-equal(size('px'), 1px);
+
+        @include assert-equal(size('1/2'), theme('width.1/2'));
+        @include assert-equal(size('1/2'), 50%);
+
+        @include assert-equal(size('1/3'), theme('width.1/3'));
+        @include assert-equal(size('1/3'), 33.333333%);
+
+        @include assert-equal(size('2/3'), theme('width.2/3'));
+        @include assert-equal(size('2/3'), 66.666667%);
+
+        @include assert-equal(size('1/4'), theme('width.1/4'));
+        @include assert-equal(size('1/4'), 25%);
+
+        @include assert-equal(size('2/4'), theme('width.2/4'));
+        @include assert-equal(size('2/4'), 50%);
+
+        @include assert-equal(size('3/4'), theme('width.3/4'));
+        @include assert-equal(size('3/4'), 75%);
+
+        @include assert-equal(size('1/5'), theme('width.1/5'));
+        @include assert-equal(size('1/5'), 20%);
+
+        @include assert-equal(size('2/5'), theme('width.2/5'));
+        @include assert-equal(size('2/5'), 40%);
+
+        @include assert-equal(size('3/5'), theme('width.3/5'));
+        @include assert-equal(size('3/5'), 60%);
+
+        @include assert-equal(size('4/5'), theme('width.4/5'));
+        @include assert-equal(size('4/5'), 80%);
+
+        @include assert-equal(size('1/6'), theme('width.1/6'));
+        @include assert-equal(size('1/6'), 16.666667%);
+
+        @include assert-equal(size('2/6'), theme('width.2/6'));
+        @include assert-equal(size('2/6'), 33.333333%);
+
+        @include assert-equal(size('3/6'), theme('width.3/6'));
+        @include assert-equal(size('3/6'), 50%);
+
+        @include assert-equal(size('4/6'), theme('width.4/6'));
+        @include assert-equal(size('4/6'), 66.666667%);
+
+        @include assert-equal(size('5/6'), theme('width.5/6'));
+        @include assert-equal(size('5/6'), 83.333333%);
+
+        @include assert-equal(size('1/12'), theme('width.1/12'));
+        @include assert-equal(size('1/12'), 8.333333%);
+
+        @include assert-equal(size('2/12'), theme('width.2/12'));
+        @include assert-equal(size('2/12'), 16.666667%);
+
+        @include assert-equal(size('3/12'), theme('width.3/12'));
+        @include assert-equal(size('3/12'), 25%);
+
+        @include assert-equal(size('4/12'), theme('width.4/12'));
+        @include assert-equal(size('4/12'), 33.333333%);
+
+        @include assert-equal(size('5/12'), theme('width.5/12'));
+        @include assert-equal(size('5/12'), 41.666667%);
+
+        @include assert-equal(size('6/12'), theme('width.6/12'));
+        @include assert-equal(size('6/12'), 50%);
+
+        @include assert-equal(size('7/12'), theme('width.7/12'));
+        @include assert-equal(size('7/12'), 58.333333%);
+
+        @include assert-equal(size('8/12'), theme('width.8/12'));
+        @include assert-equal(size('8/12'), 66.666667%);
+
+        @include assert-equal(size('9/12'), theme('width.9/12'));
+        @include assert-equal(size('9/12'), 75%);
+
+        @include assert-equal(size('10/12'), theme('width.10/12'));
+        @include assert-equal(size('10/12'), 83.333333%);
+
+        @include assert-equal(size('11/12'), theme('width.11/12'));
+        @include assert-equal(size('11/12'), 91.666667%);
+
+        @include assert-equal(size('full'), theme('width.full'));
+        @include assert-equal(size('full'), 100%);
+
+        @include assert-equal(size('screen'), theme('width.screen'));
+        @include assert-equal(size('screen'), 100vw);
+
+
+        // width
+        @include assert-equal(size('none'), theme('maxWidth.none'));
+        @include assert-equal(size('none'), none);
+
+        @include assert-equal(size('xs'), theme('maxWidth.xs'));
+        @include assert-equal(size('xs'), 20rem);
+
+        @include assert-equal(size('sm'), theme('maxWidth.sm'));
+        @include assert-equal(size('sm'), 24rem);
+
+        @include assert-equal(size('md'), theme('maxWidth.md'));
+        @include assert-equal(size('md'), 28rem);
+
+        @include assert-equal(size('lg'), theme('maxWidth.lg'));
+        @include assert-equal(size('lg'), 32rem);
+
+        @include assert-equal(size('xl'), theme('maxWidth.xl'));
+        @include assert-equal(size('xl'), 36rem);
+
+        @include assert-equal(size('2xl'), theme('maxWidth.2xl'));
+        @include assert-equal(size('2xl'), 42rem);
+
+        @include assert-equal(size('3xl'), theme('maxWidth.3xl'));
+        @include assert-equal(size('3xl'), 48rem);
+
+        @include assert-equal(size('4xl'), theme('maxWidth.4xl'));
+        @include assert-equal(size('4xl'), 56rem);
+
+        @include assert-equal(size('5xl'), theme('maxWidth.5xl'));
+        @include assert-equal(size('5xl'), 64rem);
+
+        @include assert-equal(size('6xl'), theme('maxWidth.6xl'));
+        @include assert-equal(size('6xl'), 72rem);
+
+        @include assert-equal(size('full'), theme('maxWidth.full'));
+        @include assert-equal(size('full'), 100%);
+
+        @include assert-equal(size('screen-xs'), theme('maxWidth.screen-xs'));
+        @include assert-equal(size('screen-xs'), 320px);
+
+        @include assert-equal(size('screen-sm'), theme('maxWidth.screen-sm'));
+        @include assert-equal(size('screen-sm'), 640px);
+
+        @include assert-equal(size('screen-md'), theme('maxWidth.screen-md'));
+        @include assert-equal(size('screen-md'), 768px);
+
+        @include assert-equal(size('screen-lg'), theme('maxWidth.screen-lg'));
+        @include assert-equal(size('screen-lg'), 1024px);
+
+        @include assert-equal(size('screen-xl'), theme('maxWidth.screen-xl'));
+        @include assert-equal(size('screen-xl'), 1280px);
+
+        @include assert-equal(size('screen-2xl'), theme('maxWidth.screen-2xl'));
+        @include assert-equal(size('screen-2xl'), 1536px);
+
+        @include assert-equal(size('screen-3xl'), theme('maxWidth.screen-3xl'));
+        @include assert-equal(size('screen-3xl'), 1920px);
+    }
+
+    @include it('Test:size - without quotes') {
+        @include assert-equal(size(0), size('0'));
+        @include assert-equal(size(1), size('1'));
+        @include assert-equal(size(2), size('2'));
+        @include assert-equal(size(3), size('3'));
+        @include assert-equal(size(4), size('4'));
+        @include assert-equal(size(5), size('5'));
+        @include assert-equal(size(6), size('6'));
+        @include assert-equal(size(8), size('8'));
+        @include assert-equal(size(10), size('10'));
+        @include assert-equal(size(12), size('12'));
+        @include assert-equal(size(16), size('16'));
+        @include assert-equal(size(20), size('20'));
+        @include assert-equal(size(24), size('24'));
+        @include assert-equal(size(32), size('32'));
+        @include assert-equal(size(40), size('40'));
+        @include assert-equal(size(48), size('48'));
+        @include assert-equal(size(56), size('56'));
+        @include assert-equal(size(64), size('64'));
+        @include assert-equal(size(auto), size('auto'));
+        @include assert-equal(size(px), size('px'));
+        @include assert-equal(size('1/2'), size('1/2'));
+        @include assert-equal(size('1/3'), size('1/3'));
+        @include assert-equal(size('2/3'), size('2/3'));
+        @include assert-equal(size('1/4'), size('1/4'));
+        @include assert-equal(size('2/4'), size('2/4'));
+        @include assert-equal(size('3/4'), size('3/4'));
+        @include assert-equal(size('1/5'), size('1/5'));
+        @include assert-equal(size('2/5'), size('2/5'));
+        @include assert-equal(size('3/5'), size('3/5'));
+        @include assert-equal(size('4/5'), size('4/5'));
+        @include assert-equal(size('1/6'), size('1/6'));
+        @include assert-equal(size('2/6'), size('2/6'));
+        @include assert-equal(size('3/6'), size('3/6'));
+        @include assert-equal(size('4/6'), size('4/6'));
+        @include assert-equal(size('5/6'), size('5/6'));
+        @include assert-equal(size('1/12'), size('1/12'));
+        @include assert-equal(size('2/12'), size('2/12'));
+        @include assert-equal(size('3/12'), size('3/12'));
+        @include assert-equal(size('4/12'), size('4/12'));
+        @include assert-equal(size('5/12'), size('5/12'));
+        @include assert-equal(size('6/12'), size('6/12'));
+        @include assert-equal(size('7/12'), size('7/12'));
+        @include assert-equal(size('8/12'), size('8/12'));
+        @include assert-equal(size('9/12'), size('9/12'));
+        @include assert-equal(size('10/12'), size('10/12'));
+        @include assert-equal(size('11/12'), size('11/12'));
+        @include assert-equal(size(full), size('full'));
+        @include assert-equal(size(screen), size('screen'));
+        @include assert-equal(size(none), size('none'));
+        @include assert-equal(size(xs), size('xs'));
+        @include assert-equal(size(sm), size('sm'));
+        @include assert-equal(size(md), size('md'));
+        @include assert-equal(size(lg), size('lg'));
+        @include assert-equal(size(xl), size('xl'));
+        @include assert-equal(size(2xl), size('2xl'));
+        @include assert-equal(size(3xl), size('3xl'));
+        @include assert-equal(size(4xl), size('4xl'));
+        @include assert-equal(size(5xl), size('5xl'));
+        @include assert-equal(size(6xl), size('6xl'));
+        @include assert-equal(size(full), size('full'));
+        @include assert-equal(size(screen-xs), size('screen-xs'));
+        @include assert-equal(size(screen-sm), size('screen-sm'));
+        @include assert-equal(size(screen-md), size('screen-md'));
+        @include assert-equal(size(screen-lg), size('screen-lg'));
+        @include assert-equal(size(screen-xl), size('screen-xl'));
+        @include assert-equal(size(screen-2xl), size('screen-2xl'));
+        @include assert-equal(size(screen-3xl), size('screen-3xl'));
+    }
+}

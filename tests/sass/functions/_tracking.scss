@@ -1,0 +1,31 @@
+@include describe('Functions:tracking') {
+
+    @include it('Test:tracking') {
+        @include assert-equal(tracking('tighter'), theme('letterSpacing.tighter'));
+        @include assert-equal(tracking('tighter'), -0.05em);
+
+        @include assert-equal(tracking('tight'), theme('letterSpacing.tight'));
+        @include assert-equal(tracking('tight'), -0.025em);
+
+        @include assert-equal(tracking('normal'), theme('letterSpacing.normal'));
+        @include assert-equal(tracking('normal'), 0);
+
+        @include assert-equal(tracking('wide'), theme('letterSpacing.wide'));
+        @include assert-equal(tracking('wide'), 0.025em);
+
+        @include assert-equal(tracking('wider'), theme('letterSpacing.wider'));
+        @include assert-equal(tracking('wider'), 0.05em);
+
+        @include assert-equal(tracking('widest'), theme('letterSpacing.widest'));
+        @include assert-equal(tracking('widest'), 0.1em);
+    }
+
+    @include it('Test:tracking - without quotes') {
+        @include assert-equal(tracking(tighter), tracking('tighter'));
+        @include assert-equal(tracking(tight), tracking('tight'));
+        @include assert-equal(tracking(normal), tracking('normal'));
+        @include assert-equal(tracking(wide), tracking('wide'));
+        @include assert-equal(tracking(wider), tracking('wider'));
+        @include assert-equal(tracking(widest), tracking('widest'));
+    }
+}

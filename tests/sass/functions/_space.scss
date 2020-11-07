@@ -1,0 +1,159 @@
+@include describe('Functions:space') {
+
+    @include it('Test:space') {
+        @include assert-equal(space('0'), theme('margin.0'));
+        @include assert-equal(space('0'), 0);
+
+        @include assert-equal(space('1'), theme('margin.1'));
+        @include assert-equal(space('1'), 0.25rem);
+
+        @include assert-equal(space('2'), theme('margin.2'));
+        @include assert-equal(space('2'), 0.5rem);
+
+        @include assert-equal(space('3'), theme('margin.3'));
+        @include assert-equal(space('3'), 0.75rem);
+
+        @include assert-equal(space('4'), theme('margin.4'));
+        @include assert-equal(space('4'), 1rem);
+
+        @include assert-equal(space('5'), theme('margin.5'));
+        @include assert-equal(space('5'), 1.25rem);
+
+        @include assert-equal(space('6'), theme('margin.6'));
+        @include assert-equal(space('6'), 1.5rem);
+
+        @include assert-equal(space('8'), theme('margin.8'));
+        @include assert-equal(space('8'), 2rem);
+
+        @include assert-equal(space('10'), theme('margin.10'));
+        @include assert-equal(space('10'), 2.5rem);
+
+        @include assert-equal(space('12'), theme('margin.12'));
+        @include assert-equal(space('12'), 3rem);
+
+        @include assert-equal(space('16'), theme('margin.16'));
+        @include assert-equal(space('16'), 4rem);
+
+        @include assert-equal(space('20'), theme('margin.20'));
+        @include assert-equal(space('20'), 5rem);
+
+        @include assert-equal(space('24'), theme('margin.24'));
+        @include assert-equal(space('24'), 6rem);
+
+        @include assert-equal(space('32'), theme('margin.32'));
+        @include assert-equal(space('32'), 8rem);
+
+        @include assert-equal(space('40'), theme('margin.40'));
+        @include assert-equal(space('40'), 10rem);
+
+        @include assert-equal(space('48'), theme('margin.48'));
+        @include assert-equal(space('48'), 12rem);
+
+        @include assert-equal(space('56'), theme('margin.56'));
+        @include assert-equal(space('56'), 14rem);
+
+        @include assert-equal(space('64'), theme('margin.64'));
+        @include assert-equal(space('64'), 16rem);
+
+        @include assert-equal(space('auto'), theme('margin.auto'));
+        @include assert-equal(space('auto'), auto);
+
+        @include assert-equal(space('px'), theme('margin.px'));
+        @include assert-equal(space('px'), 1px);
+
+        @include assert-equal(space('-1'), theme('margin.-1'));
+        @include assert-equal(space('-1'), -0.25rem);
+
+        @include assert-equal(space('-2'), theme('margin.-2'));
+        @include assert-equal(space('-2'), -0.5rem);
+
+        @include assert-equal(space('-3'), theme('margin.-3'));
+        @include assert-equal(space('-3'), -0.75rem);
+
+        @include assert-equal(space('-4'), theme('margin.-4'));
+        @include assert-equal(space('-4'), -1rem);
+
+        @include assert-equal(space('-5'), theme('margin.-5'));
+        @include assert-equal(space('-5'), -1.25rem);
+
+        @include assert-equal(space('-6'), theme('margin.-6'));
+        @include assert-equal(space('-6'), -1.5rem);
+
+        @include assert-equal(space('-8'), theme('margin.-8'));
+        @include assert-equal(space('-8'), -2rem);
+
+        @include assert-equal(space('-10'), theme('margin.-10'));
+        @include assert-equal(space('-10'), -2.5rem);
+
+        @include assert-equal(space('-12'), theme('margin.-12'));
+        @include assert-equal(space('-12'), -3rem);
+
+        @include assert-equal(space('-16'), theme('margin.-16'));
+        @include assert-equal(space('-16'), -4rem);
+
+        @include assert-equal(space('-20'), theme('margin.-20'));
+        @include assert-equal(space('-20'), -5rem);
+
+        @include assert-equal(space('-24'), theme('margin.-24'));
+        @include assert-equal(space('-24'), -6rem);
+
+        @include assert-equal(space('-32'), theme('margin.-32'));
+        @include assert-equal(space('-32'), -8rem);
+
+        @include assert-equal(space('-40'), theme('margin.-40'));
+        @include assert-equal(space('-40'), -10rem);
+
+        @include assert-equal(space('-48'), theme('margin.-48'));
+        @include assert-equal(space('-48'), -12rem);
+
+        @include assert-equal(space('-56'), theme('margin.-56'));
+        @include assert-equal(space('-56'), -14rem);
+
+        @include assert-equal(space('-64'), theme('margin.-64'));
+        @include assert-equal(space('-64'), -16rem);
+
+        @include assert-equal(space('-px'), theme('margin.-px'));
+        @include assert-equal(space('-px'), -1px);
+    }
+
+    @include it('Test:space - without quotes') {
+        @include assert-equal(space(0), space('0'));
+        @include assert-equal(space(1), space('1'));
+        @include assert-equal(space(2), space('2'));
+        @include assert-equal(space(3), space('3'));
+        @include assert-equal(space(4), space('4'));
+        @include assert-equal(space(5), space('5'));
+        @include assert-equal(space(6), space('6'));
+        @include assert-equal(space(8), space('8'));
+        @include assert-equal(space(10), space('10'));
+        @include assert-equal(space(12), space('12'));
+        @include assert-equal(space(16), space('16'));
+        @include assert-equal(space(20), space('20'));
+        @include assert-equal(space(24), space('24'));
+        @include assert-equal(space(32), space('32'));
+        @include assert-equal(space(40), space('40'));
+        @include assert-equal(space(48), space('48'));
+        @include assert-equal(space(56), space('56'));
+        @include assert-equal(space(64), space('64'));
+        @include assert-equal(space(auto), space('auto'));
+        @include assert-equal(space(px), space('px'));
+        @include assert-equal(space(-1), space('-1'));
+        @include assert-equal(space(-2), space('-2'));
+        @include assert-equal(space(-3), space('-3'));
+        @include assert-equal(space(-4), space('-4'));
+        @include assert-equal(space(-5), space('-5'));
+        @include assert-equal(space(-6), space('-6'));
+        @include assert-equal(space(-8), space('-8'));
+        @include assert-equal(space(-10), space('-10'));
+        @include assert-equal(space(-12), space('-12'));
+        @include assert-equal(space(-16), space('-16'));
+        @include assert-equal(space(-20), space('-20'));
+        @include assert-equal(space(-24), space('-24'));
+        @include assert-equal(space(-32), space('-32'));
+        @include assert-equal(space(-40), space('-40'));
+        @include assert-equal(space(-48), space('-48'));
+        @include assert-equal(space(-56), space('-56'));
+        @include assert-equal(space(-64), space('-64'));
+        @include assert-equal(space(-px), space('-px'));
+    }
+}

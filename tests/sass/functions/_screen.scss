@@ -1,0 +1,35 @@
+@include describe('Functions:screen') {
+
+    @include it('Test:screen') {
+        @include assert-equal(screen('xs'), theme('screens.xs'));
+        @include assert-equal(screen('xs'), 320px);
+
+        @include assert-equal(screen('sm'), theme('screens.sm'));
+        @include assert-equal(screen('sm'), 640px);
+
+        @include assert-equal(screen('md'), theme('screens.md'));
+        @include assert-equal(screen('md'), 768px);
+
+        @include assert-equal(screen('lg'), theme('screens.lg'));
+        @include assert-equal(screen('lg'), 1024px);
+
+        @include assert-equal(screen('xl'), theme('screens.xl'));
+        @include assert-equal(screen('xl'), 1280px);
+
+        @include assert-equal(screen('2xl'), theme('screens.2xl'));
+        @include assert-equal(screen('2xl'), 1536px);
+
+        @include assert-equal(screen('3xl'), theme('screens.3xl'));
+        @include assert-equal(screen('3xl'), 1920px);
+    }
+
+    @include it('Test:screen - without quotes') {
+        @include assert-equal(screen(xs), screen('xs'));
+        @include assert-equal(screen(sm), screen('sm'));
+        @include assert-equal(screen(md), screen('md'));
+        @include assert-equal(screen(lg), screen('lg'));
+        @include assert-equal(screen(xl), screen('xl'));
+        @include assert-equal(screen(2xl), screen('2xl'));
+        @include assert-equal(screen(3xl), screen('3xl'));
+    }
+}

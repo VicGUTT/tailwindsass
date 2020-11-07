@@ -1,0 +1,26 @@
+@include describe('Functions:config') {
+
+    @include it('Test:config') {
+        @include assert-equal(config('theme.screens.xs'), nested-map-get($config, theme, screens, xs));
+        @include assert-equal(config('theme.screens.xs'), 320px);
+
+        @include assert-equal(config('theme.colors.gray.100'), nested-map-get($config, theme, colors, 'gray', '100'));
+        @include assert-equal(config('theme.colors.gray.100'), #f7fafc);
+
+        @include assert-equal(config('theme.backgroundImage.gradient-to-t'), nested-map-get($config, theme, backgroundImage, gradient-to-t));
+        @include assert-equal(config('theme.backgroundImage.gradient-to-t'), 'linear-gradient(to top, var(--gradient-color-stops))');
+
+        @include assert-equal(config('theme.fontFamily.serif'), nested-map-get($config, theme, fontFamily, serif));
+        @include assert-equal(config('theme.fontFamily.serif'), (Georgia, Cambria, "Times New Roman", Times, serif));
+
+        @include assert-equal(config('theme.gridColumn.span-1'), nested-map-get($config, theme, gridColumn, span-1));
+        @include assert-equal(config('theme.gridColumn.span-1'), span 1 / span 1);
+
+        // // Expected errors to be thrown :
+
+        // @include assert-equal(config(''), null); // Error --> "[TailwindSASS - nested-map-get]: No key of `` found in the provided map."
+        // @include assert-equal(config('none-existing-key'), null); // Error --> "[TailwindSASS - nested-map-get]: No key of `none-existing-key` found in the provided map."
+        // @include assert-equal(config('none-existing-key.gridColumn'), null); // Error --> "[TailwindSASS - nested-map-get]: No key of `none-existing-key` found in the provided map."
+        // @include assert-equal(config('none-existing-key.gridColumn.span-1'), null); // Error --> "[TailwindSASS - nested-map-get]: No key of `none-existing-key` found in the provided map."
+    }
+}

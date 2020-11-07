@@ -1,0 +1,114 @@
+@include describe('Mixins:screens') {
+
+    @include it('Test:screen-xs') {
+        @include assert {
+            @include output {
+                @include screen-xs {
+                    font-size: 7em;
+                }
+            }
+
+            @include expect {
+                @media (min-width: 320px) {
+                    font-size: 7em;
+                }
+            }
+        }
+    }
+
+    @include it('Test:screen-sm') {
+        @include assert {
+            @include output {
+                @include screen-sm {
+                    font-size: 7em;
+                }
+            }
+
+            @include expect {
+                @media (min-width: 640px) {
+                    font-size: 7em;
+                }
+            }
+        }
+    }
+
+    @include it('Test:screen-md') {
+        @include assert {
+            @include output {
+                @include screen-md {
+                    font-size: 7em;
+                }
+            }
+
+            @include expect {
+                @media (min-width: 768px) {
+                    font-size: 7em;
+                }
+            }
+        }
+    }
+
+    @include it('Test:screen-lg') {
+        @include assert {
+            @include output {
+                @include screen-lg {
+                    font-size: 7em;
+                }
+            }
+
+            @include expect {
+                @media (min-width: 1024px) {
+                    font-size: 7em;
+                }
+            }
+        }
+    }
+
+    @include it('Test:screen-xl') {
+        @include assert {
+            @include output {
+                @include screen-xl {
+                    font-size: 7em;
+                }
+            }
+
+            @include expect {
+                @media (min-width: 1280px) {
+                    font-size: 7em;
+                }
+            }
+        }
+    }
+
+    @include it('Test:screen-2xl') {
+        @include assert {
+            @include output {
+                @include screen-2xl {
+                    font-size: 7em;
+                }
+            }
+
+            @include expect {
+                @media (min-width: 1536px) {
+                    font-size: 7em;
+                }
+            }
+        }
+    }
+
+    @include it('Test:screen-3xl') {
+        @include assert {
+            @include output {
+                @include screen-3xl {
+                    font-size: 7em;
+                }
+            }
+
+            @include expect {
+                @media (min-width: 1920px) {
+                    font-size: 7em;
+                }
+            }
+        }
+    }
+}

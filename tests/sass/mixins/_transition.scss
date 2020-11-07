@@ -1,0 +1,29 @@
+@include describe('Mixins:transition') {
+
+    @include it('Test:transition') {
+        @include assert {
+            @include output {
+                @include transition;
+            }
+
+            @include expect {
+                transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+                transition-duration: 200ms;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
+
+        @include assert {
+            @include output {
+                @include transition(colors, 300, out, 700);
+            }
+
+            @include expect {
+                transition-property: background-color, border-color, color, fill, stroke;
+                transition-duration: 300ms;
+                transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+                transition-delay: 700ms;
+            }
+        }
+    }
+}

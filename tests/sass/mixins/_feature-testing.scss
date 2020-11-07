@@ -1,0 +1,114 @@
+@include describe('Mixins:feature-testing') {
+
+    @include it('Test:check-var') {
+        @include assert {
+            @include output {
+                @include check-var {
+                    display: grid;
+                }
+            }
+
+            @include expect {
+                @supports (color: var(--primary)) {
+                    display: grid;
+                }
+            }
+        }
+    }
+
+    @include it('Test:check-object-fit') {
+        @include assert {
+            @include output {
+                @include check-object-fit {
+                    display: grid;
+                }
+            }
+
+            @include expect {
+                @supports (object-fit: cover) {
+                    display: grid;
+                }
+            }
+        }
+    }
+
+    @include it('Test:check-grid') {
+        @include assert {
+            @include output {
+                @include check-grid {
+                    display: grid;
+                }
+            }
+
+            @include expect {
+                @supports (display: grid) and (gap: 1em) {
+                    display: grid;
+                }
+            }
+        }
+    }
+
+    @include it('Test:check-flexbox') {
+        @include assert {
+            @include output {
+                @include check-flexbox {
+                    display: grid;
+                }
+            }
+
+            @include expect {
+                @supports (display: flex) and (flex-wrap: wrap) {
+                    display: grid;
+                }
+            }
+        }
+    }
+
+    @include it('Test:acceptable-browser') {
+        @include assert {
+            @include output {
+                @include acceptable-browser {
+                    display: grid;
+                }
+            }
+
+            @include expect {
+                @supports (flex-wrap: wrap) and (gap: 1em) and (color: var(--primary)) {
+                    display: grid;
+                }
+            }
+        }
+    }
+
+    @include it('Test:modern-browser') {
+        @include assert {
+            @include output {
+                @include modern-browser {
+                    display: grid;
+                }
+            }
+
+            @include expect {
+                @supports (font-size: min(1em, 2em)) and (font-size: max(1em, 2em)) and (font-size: clamp(1em, 2em, 3em)) {
+                    display: grid;
+                }
+            }
+        }
+    }
+
+    @include it('Test:edge-browser') {
+        @include assert {
+            @include output {
+                @include edge-browser {
+                    display: grid;
+                }
+            }
+
+            @include expect {
+                @supports (contain: content) and (content-visibility: hidden) and (contain-intrinsic-size: 1000px) {
+                    display: grid;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+/**
+* Function for controlling the tracking (letter spacing) of an element.
+*
+* @docs https://tailwindcss.com/docs/letter-spacing
+*/
+@function tracking($key) {
+    @return theme('letterSpacing.' + $key);
+}

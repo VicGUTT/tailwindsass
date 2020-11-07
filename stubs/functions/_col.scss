@@ -1,0 +1,8 @@
+/**
+* Function for controlling how elements are sized and placed across grid columns.
+*
+* @docs https://tailwindcss.com/docs/grid-column
+*/
+@function col($key) {
+    @return theme('gridColumn.' + $key);
+}

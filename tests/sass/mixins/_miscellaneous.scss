@@ -1,0 +1,82 @@
+@include describe('Mixins:miscellaneous') {
+
+    @include it('Test:clearfix') {
+        @include assert {
+            @include output {
+                @include clearfix;
+            }
+
+            @include expect {
+                &::after {
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
+            }
+        }
+    }
+
+    @include it('Test:truncate') {
+        @include assert {
+            @include output {
+                @include truncate;
+            }
+
+            @include expect {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+    }
+
+    @include it('Test:loose-focus') {
+        @include assert {
+            @include output {
+                @include loose-focus;
+            }
+
+            @include expect {
+                pointer-events: none;
+                user-select: none;
+            }
+        }
+
+        @include assert {
+            @include output {
+                @include loose-focus(true);
+            }
+
+            @include expect {
+                visibility: hidden;
+                pointer-events: none;
+                user-select: none;
+            }
+        }
+    }
+
+    @include it('Test:gain-focus') {
+        @include assert {
+            @include output {
+                @include gain-focus;
+            }
+
+            @include expect {
+                visibility: visible;
+                pointer-events: initial;
+                user-select: initial;
+            }
+        }
+
+        @include assert {
+            @include output {
+                @include gain-focus(false);
+            }
+
+            @include expect {
+                pointer-events: initial;
+                user-select: initial;
+            }
+        }
+    }
+}

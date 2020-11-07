@@ -1,0 +1,44 @@
+@include describe('Functions:helper') {
+
+    @include it('Test:str-replace') {
+        @include assert-equal(str-replace('hello', 'lo', 'a'), 'hela');
+        @include assert-equal(str-replace('hello', 'lo', ''), 'hel');
+    }
+
+    @include it('Test:str-contains') {
+        @include assert-equal(str-contains('hello', 'lo'), true);
+        @include assert-equal(str-contains('hello', 'x'), false);
+    }
+
+    @include it('Test:str-trim') {
+        @include assert-equal(str-trim(' hello '), 'hello');
+    }
+
+    @include it('Test:str-split') {
+        @include assert-equal(str-split('h.e.l.l.o', '.'), ('h' 'e' 'l' 'l' 'o'));
+        @include assert-equal(str-split('h, e, l, l, o', ', '), ('h' 'e' 'l' 'l' 'o'));
+        @include assert-equal(str-split('h e l l o', ' '), ('h' 'e' 'l' 'l' 'o'));
+        @include assert-equal(str-split('hello', 'll'), ('he' 'o'));
+    }
+
+    @include it('Test:nested-map-get') {
+        $example-map: (
+            foo: (
+                baz: (
+                    qux: (
+                        quux: (
+                            garply: (
+                                waldo: "Hello world",
+                            )
+                        )
+                    )
+                ) 
+            ) 
+        );
+        
+        @include assert-equal(nested-map-get($example-map, foo), map-get($example-map, foo));
+        @include assert-equal(nested-map-get($example-map, foo, baz), map-get(map-get($example-map, foo), baz));
+        @include assert-equal(nested-map-get($example-map, foo, baz, qux), map-get(map-get(map-get($example-map, foo), baz), qux));
+        @include assert-equal(nested-map-get($example-map, foo, baz, qux, quux, garply, waldo), 'Hello world');
+    }
+}

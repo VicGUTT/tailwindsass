@@ -1,0 +1,63 @@
+@include describe('Functions:leading') {
+
+    @include it('Test:leading') {
+        @include assert-equal(leading('3'), theme('lineHeight.3'));
+        @include assert-equal(leading('3'), .75rem);
+
+        @include assert-equal(leading('4'), theme('lineHeight.4'));
+        @include assert-equal(leading('4'), 1rem);
+
+        @include assert-equal(leading('5'), theme('lineHeight.5'));
+        @include assert-equal(leading('5'), 1.25rem);
+
+        @include assert-equal(leading('6'), theme('lineHeight.6'));
+        @include assert-equal(leading('6'), 1.5rem);
+
+        @include assert-equal(leading('7'), theme('lineHeight.7'));
+        @include assert-equal(leading('7'), 1.75rem);
+
+        @include assert-equal(leading('8'), theme('lineHeight.8'));
+        @include assert-equal(leading('8'), 2rem);
+
+        @include assert-equal(leading('9'), theme('lineHeight.9'));
+        @include assert-equal(leading('9'), 2.25rem);
+
+        @include assert-equal(leading('10'), theme('lineHeight.10'));
+        @include assert-equal(leading('10'), 2.5rem);
+
+        @include assert-equal(leading('none'), theme('lineHeight.none'));
+        @include assert-equal(leading('none'), 1);
+
+        @include assert-equal(leading('tight'), theme('lineHeight.tight'));
+        @include assert-equal(leading('tight'), 1.25);
+
+        @include assert-equal(leading('snug'), theme('lineHeight.snug'));
+        @include assert-equal(leading('snug'), 1.375);
+
+        @include assert-equal(leading('normal'), theme('lineHeight.normal'));
+        @include assert-equal(leading('normal'), 1.5);
+
+        @include assert-equal(leading('relaxed'), theme('lineHeight.relaxed'));
+        @include assert-equal(leading('relaxed'), 1.625);
+
+        @include assert-equal(leading('loose'), theme('lineHeight.loose'));
+        @include assert-equal(leading('loose'), 2);
+    }
+
+    @include it('Test:leading - without quotes') {
+        @include assert-equal(leading(3), leading('3'));
+        @include assert-equal(leading(4), leading('4'));
+        @include assert-equal(leading(5), leading('5'));
+        @include assert-equal(leading(6), leading('6'));
+        @include assert-equal(leading(7), leading('7'));
+        @include assert-equal(leading(8), leading('8'));
+        @include assert-equal(leading(9), leading('9'));
+        @include assert-equal(leading(10), leading('10'));
+        @include assert-equal(leading(none), leading('none'));
+        @include assert-equal(leading(tight), leading('tight'));
+        @include assert-equal(leading(snug), leading('snug'));
+        @include assert-equal(leading(normal), leading('normal'));
+        @include assert-equal(leading(relaxed), leading('relaxed'));
+        @include assert-equal(leading(loose), leading('loose'));
+    }
+}
