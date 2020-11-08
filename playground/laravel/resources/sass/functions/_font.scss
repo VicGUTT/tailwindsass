@@ -31,11 +31,11 @@
 
 /**
 * Function for controlling the font family, size or weight of an element.
-* It relies on the fact that the Tailwind conf won't have same keys for
+* It relies on the fact that the Tailwind config won't have same keys for
 * `fontFamily`, `fontWeight`, or `fontSize`.
 *
 * If your config does have similar key names for those, please
-* user the dedicated font functions instead.
+* use the dedicated font functions instead.
 */
 @function font($key) {
     @if (map-has-key(theme('fontFamily'), $key)) {

@@ -831,7 +831,11 @@ module.exports = {
     plugins: [
         require('@tailwindcss/custom-forms'),
         require('@tailwindcss/typography'),
-        require('../../lib')({
+        // require('../../lib')({
+        //     // base: './resources/sass/app.scss',
+        //     dist: './resources/sass',
+        // }),
+        require('@vicgutt/tailwindsass')({
             // base: './resources/sass/app.scss',
             dist: './resources/sass',
         }),
