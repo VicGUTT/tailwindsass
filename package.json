@@ -23,6 +23,11 @@
     "scripts": {
         "test": "jest --env=node"
     },
+    "np": {
+        "publishConfig": {
+            "access": "public"
+        }
+    },
     "devDependencies": {
         "@tailwindcss/custom-forms": "^0.2.1",
         "@tailwindcss/typography": "^0.2.0",
