@@ -1,0 +1,4 @@
+/.vic
+*.vic
+/playground
+/tests/js/output
